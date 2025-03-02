@@ -37,15 +37,29 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(libs.constraintlayout.v214)
     implementation(libs.play.services.base)
-    implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
-    implementation("com.google.firebase:firebase-auth:23.2.0")
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-database")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("com.google.android.gms:play-services-auth:21.3.0")
-    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.database)
+    implementation(libs.appcompat)
+    implementation(libs.play.services.auth)
+    implementation(libs.firebase.messaging)
+    implementation(libs.play.services.measurement)
+    implementation(libs.play.services.measurement.api)
+    implementation(libs.play.services.measurement.base)
+    implementation(libs.play.services.measurement.impl)
+    implementation(libs.play.services.measurement.sdk)
+    implementation(libs.play.services.measurement.sdk.api)
+
+
+
+
+
+
+    implementation(libs.okhttp)
+    implementation(libs.firebase.firestore)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

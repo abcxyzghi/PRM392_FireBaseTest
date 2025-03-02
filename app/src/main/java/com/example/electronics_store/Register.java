@@ -26,6 +26,7 @@ public class Register extends AppCompatActivity {
 
         final EditText yourName = findViewById(R.id.name);
         final EditText emailAddress = findViewById(R.id.email);
+        final EditText phone = findViewById(R.id.phone);
         final EditText password = findViewById(R.id.password);
         final EditText confirmPassword = findViewById(R.id.reenter_password);
         final Button registerBtn = findViewById(R.id.signup_button);
@@ -36,10 +37,11 @@ public class Register extends AppCompatActivity {
             try {
                 final String nameText = yourName.getText().toString();
                 final String emailText = emailAddress.getText().toString();
+                final String phoneText = phone.getText().toString();
                 final String passwordText = password.getText().toString();
                 final String confirmPasswordText = confirmPassword.getText().toString();
 
-                if (nameText.isEmpty() || emailText.isEmpty() || passwordText.isEmpty() || confirmPasswordText.isEmpty()) {
+                if (nameText.isEmpty() || emailText.isEmpty() || phoneText.isEmpty() || passwordText.isEmpty() || confirmPasswordText.isEmpty()) {
                     Toast.makeText(Register.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -59,6 +61,7 @@ public class Register extends AppCompatActivity {
                         } else {
                             databaseReference.child("users").child(emailKey).child("yourName").setValue(nameText);
                             databaseReference.child("users").child(emailKey).child("emailAddress").setValue(emailText);
+                            databaseReference.child("users").child(emailKey).child("phone").setValue(phoneText);
                             databaseReference.child("users").child(emailKey).child("password").setValue(passwordText);
                             databaseReference.child("users").child(emailKey).child("role").setValue("user")
                                     .addOnCompleteListener(task -> {
